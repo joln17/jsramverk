@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import PropTypes from "prop-types";
+import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 import { Container, Image, Nav, Navbar, NavDropdown, Row } from 'react-bootstrap';
 
-import headerImg from "../../assets/images/header_1920.jpg";
+import headerImg from '../../assets/images/header_1920.jpg';
 
 import './Header.css';
 

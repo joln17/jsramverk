@@ -1,28 +1,18 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import { Col, Container, Row } from 'react-bootstrap';
+import { Col, Container, Image, Row } from 'react-bootstrap';
 import ReactMarkdown from 'react-markdown';
 
-import kmom01 from '../../assets/articles/kmom01.md';
+import logo from '../../assets/images/logo.svg';
+import meArticle from '../../assets/articles/about.md';
 
-class Reports extends Component {
-    static propTypes = {
-        match: PropTypes.object.isRequired
-    };
-
+class About extends Component {
     constructor(props) {
         super(props);
         this.state = { mdText: "" };
     }
 
     componentDidMount() {
-        const { match } = this.props;
-        const { kmom } = match.params;
-        const reports = {
-            1: kmom01
-        };
-
-        fetch(reports[kmom])
+        fetch(meArticle)
             .then(response => {
                 return response.text();
             })
@@ -36,6 +26,8 @@ class Reports extends Component {
             <Container>
                 <Row>
                     <Col md={{ span: 8, offset: 2 }}>
+                        <h1>Om</h1>
+                        <Image src={logo} className="img-float-right" />
                         <ReactMarkdown source={this.state.mdText} />
                     </Col>
                 </Row>
@@ -44,4 +36,4 @@ class Reports extends Component {
     }
 }
 
-export default Reports;
+export default About;

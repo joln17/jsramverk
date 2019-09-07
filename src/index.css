@@ -11,3 +11,15 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.img-float-left {
+  float: left;
+  margin-right: 10px;
+  max-width: 50%;
+}
+
+.img-float-right {
+  float: right;
+  margin-left: 5px;
+  max-width: 50%;
+}
