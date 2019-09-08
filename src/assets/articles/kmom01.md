@@ -1,4 +1,14 @@
 # Kmom01
+GitHub-repot för projektet återfinns på https://github.com/joln17/jsramverk/
+
+Projektet är skapat med "Create React App" och använder i skrivande stund följande extra moduler:
+* react-bootstrap: "^1.0.0-beta.12"
+* react-markdown: "^4.2.2"
+* react-router-dom: "^5.0.1"
+
+Nedan återfinns en kopia av projektets README.md-fil.
+
+# README.md
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
