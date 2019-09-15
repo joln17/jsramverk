@@ -18,15 +18,22 @@ class Header extends Component {
 
         return (
             <header>
-                <Navbar bg="dark" variant="dark">
+                <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
                     <Navbar.Brand href="/">Me-sida</Navbar.Brand>
-                    <Nav className="mr-auto">
-                        <Nav.Link href="/" active={path[0] === "/"}>Hem</Nav.Link>
-                        <NavDropdown title="Redovisning" active={path[0] === "/reports"}>
-                            <NavDropdown.Item href="/reports/week/1">Kmom01</NavDropdown.Item>
-                        </NavDropdown>
-                        <Nav.Link href="/about" active={path[0] === "/about"}>Om</Nav.Link>
-                    </Nav>
+                    <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+                    <Navbar.Collapse id="responsive-navbar-nav">
+                        <Nav className="mr-auto">
+                            <Nav.Link href="/" active={path[0] === "/"}>Hem</Nav.Link>
+                            <NavDropdown title="Redovisning" active={path[0] === "/reports"}>
+                                <NavDropdown.Item href="/reports/week/1">Kmom01</NavDropdown.Item>
+                                <NavDropdown.Item href="/reports/week/2">Kmom02</NavDropdown.Item>
+                            </NavDropdown>
+                            <Nav.Link href="/registration" active={path[0] === "/registration"}>
+                                Registrera
+                            </Nav.Link>
+                            <Nav.Link href="/about" active={path[0] === "/about"}>Om</Nav.Link>
+                        </Nav>
+                    </Navbar.Collapse>
                 </Navbar>
                 <Container fluid>
                     <Row>

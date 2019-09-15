@@ -4,6 +4,7 @@ import { Col, Container, Row } from 'react-bootstrap';
 import ReactMarkdown from 'react-markdown';
 
 import kmom01 from '../../assets/articles/kmom01.md';
+import kmom02 from '../../assets/articles/kmom02.md';
 
 class Reports extends Component {
     static propTypes = {
@@ -19,7 +20,8 @@ class Reports extends Component {
         const { match } = this.props;
         const { kmom } = match.params;
         const reports = {
-            1: kmom01
+            1: kmom01,
+            2: kmom02
         };
 
         fetch(reports[kmom])
