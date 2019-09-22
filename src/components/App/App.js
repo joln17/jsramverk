@@ -6,6 +6,7 @@ import Me from '../Me/Me';
 import Reports from '../Reports/Reports';
 import About from '../About/About';
 import RegistrationForm from '../RegistrationForm/RegistrationForm';
+import Login from '../Login/Login';
 
 import './App.css';
 
@@ -19,6 +20,7 @@ class App extends Component {
                     <Route path="/reports/week/:kmom" component={Reports} />
                     <Route exact path="/about" component={About} />
                     <Route exact path="/registration" component={RegistrationForm} />
+                    <Route exact path="/login" component={Login} />
                 </Switch>
             </Router>
         );

@@ -3,7 +3,6 @@ import { Col, Container, Image, Row } from 'react-bootstrap';
 import ReactMarkdown from 'react-markdown';
 
 import meImg from '../../assets/images/me001bws.jpg';
-import meArticle from '../../assets/articles/me.md';
 
 class Me extends Component {
     constructor(props) {
@@ -12,12 +11,12 @@ class Me extends Component {
     }
 
     componentDidMount() {
-        fetch(meArticle)
+        fetch('https://me-api.joln17.me/')
             .then(response => {
-                return response.text();
+                return response.json();
             })
-            .then(text => {
-                this.setState({ mdText: text });
+            .then(data => {
+                this.setState({ mdText: data.text });
             });
     }
 

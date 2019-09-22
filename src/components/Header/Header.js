@@ -28,10 +28,10 @@ class Header extends Component {
                                 <NavDropdown.Item href="/reports/week/1">Kmom01</NavDropdown.Item>
                                 <NavDropdown.Item href="/reports/week/2">Kmom02</NavDropdown.Item>
                             </NavDropdown>
-                            <Nav.Link href="/registration" active={path[0] === "/registration"}>
-                                Registrera
-                            </Nav.Link>
                             <Nav.Link href="/about" active={path[0] === "/about"}>Om</Nav.Link>
+                            <Nav.Link href="/login" active={path[0] === "/login"}>
+                                Logga in
+                            </Nav.Link>
                         </Nav>
                     </Navbar.Collapse>
                 </Navbar>
