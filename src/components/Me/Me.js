@@ -2,22 +2,38 @@ import React, { Component } from 'react';
 import { Col, Container, Image, Row } from 'react-bootstrap';
 import ReactMarkdown from 'react-markdown';
 
+import config from '../../config';
+
 import meImg from '../../assets/images/me001bws.jpg';
 
 class Me extends Component {
     constructor(props) {
         super(props);
-        this.state = { mdText: "" };
+        this.state = { text: '' };
     }
 
     componentDidMount() {
-        fetch('https://me-api.joln17.me/')
-            .then(response => {
-                return response.json();
-            })
-            .then(data => {
-                this.setState({ mdText: data.text });
-            });
+        const url = config.baseURL;
+
+        fetch(url, {
+            method: 'GET',
+            headers: {
+                //x-access-token: token,
+                'Content-Type': 'application/json'
+            },
+        }).then(response => {
+            return response.json();
+        }).then(result => {
+            if (result.text) {
+                this.setState({
+                    text: result.text
+                });
+            } else if (result.error) {
+                console.log(result.error);
+            }
+        }).catch(error => {
+            console.log("Request failed due to the following error: ", error.message);
+        });
     }
 
     render() {
@@ -27,7 +43,7 @@ class Me extends Component {
                     <Col md={{ span: 8, offset: 2 }}>
                         <h1>Min Me-sida i kursen jsramverk</h1>
                         <Image src={meImg} className="img-float-left" />
-                        <ReactMarkdown source={this.state.mdText} />
+                        <ReactMarkdown source={this.state.text} />
                     </Col>
                 </Row>
             </Container>

@@ -3,8 +3,7 @@ import PropTypes from 'prop-types';
 import { Col, Container, Row } from 'react-bootstrap';
 import ReactMarkdown from 'react-markdown';
 
-import kmom01 from '../../assets/articles/kmom01.md';
-import kmom02 from '../../assets/articles/kmom02.md';
+import config from '../../config';
 
 class Reports extends Component {
     static propTypes = {
@@ -13,24 +12,36 @@ class Reports extends Component {
 
     constructor(props) {
         super(props);
-        this.state = { mdText: "" };
+        this.state = {
+            reportId: this.props.match.params.kmom,
+            title: '',
+            text: ''
+        };
     }
 
     componentDidMount() {
-        const { match } = this.props;
-        const { kmom } = match.params;
-        const reports = {
-            1: kmom01,
-            2: kmom02
-        };
+        const urlReport = config.baseURL + '/reports/week/' + this.state.reportId;
 
-        fetch(reports[kmom])
-            .then(response => {
-                return response.text();
-            })
-            .then(text => {
-                this.setState({ mdText: text });
-            });
+        fetch(urlReport, {
+            method: 'GET',
+            headers: {
+                //x-access-token: token,
+                'Content-Type': 'application/json'
+            },
+        }).then(response => {
+            return response.json();
+        }).then(result => {
+            if (result.data) {
+                this.setState({
+                    title: result.data.title,
+                    text: result.data.text
+                });
+            } else if (result.error) {
+                console.log(result.error);
+            }
+        }).catch(error => {
+            console.log("Request failed due to the following error: ", error.message);
+        });
     }
 
     render() {
@@ -38,7 +49,7 @@ class Reports extends Component {
             <Container>
                 <Row>
                     <Col md={{ span: 8, offset: 2 }}>
-                        <ReactMarkdown source={this.state.mdText} />
+                        <ReactMarkdown source={this.state.text} />
                     </Col>
                 </Row>
             </Container>
