@@ -58,10 +58,10 @@ class Login extends Component {
         }).then(result => {
             if (result.data && result.data.token) {
                 localStorage.setItem('token', result.data.token);
-                this.setState({ redirect: true });
                 if (result.data.admin) {
                     this.setState({ admin: true });
                 }
+                this.setState({ redirect: true });
             } else if (result.error) {
                 console.log(result.error);
             }

@@ -38,10 +38,10 @@ class VerifyAdmin extends Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        const urlVerifyAdmin = config.baseURL + '/auth/verify-admin';
+        const urlVerifyAdmin = config.baseURL + '/auth/verify-admin-access-code';
 
         fetch(urlVerifyAdmin, {
-            method: 'POST',
+            method: 'PUT',
             headers: {
                 'x-access-token': localStorage.getItem('token'),
                 'Content-Type': 'application/json',
