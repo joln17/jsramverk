@@ -5,5 +5,7 @@ build:
         after:
           - command: npm run build
       tests:
+        before:
+          - command: node node_modules/http-server-spa/server build index.html 8082 &
         override:
-          - command: node node_modules/http-server-spa/server build index.html 8082 & npm test
+          - command: npm test
