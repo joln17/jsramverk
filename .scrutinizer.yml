@@ -1,6 +1,9 @@
 build:
   nodes:
     coverage:
+      dependencies:
+        after:
+          - command: npm run build
       tests:
         override:
-          - command: npm test
+          - command: node node_modules/http-server-spa/server build index.html 8082 & npm test
