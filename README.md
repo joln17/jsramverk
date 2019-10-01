@@ -1,3 +1,6 @@
+[![Build Status](https://travis-ci.org/joln17/jsramverk.svg?branch=master)](https://travis-ci.org/joln17/jsramverk)
+[![Build Status](https://scrutinizer-ci.com/g/joln17/jsramverk/badges/build.png?b=master)](https://scrutinizer-ci.com/g/joln17/jsramverk/build-status/master)
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
