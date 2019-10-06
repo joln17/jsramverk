@@ -40,7 +40,7 @@ class Chat extends Component {
 
     componentDidMount() {
         if (this.props.location.state) {
-            socket = io('https://socket-server.joln17.me:8300');
+            socket = io('https://socket-server.joln17.me');
             socket.on('connect', () => {
                 this.setState({ connected: true });
                 socket.on('chat message', message => {
