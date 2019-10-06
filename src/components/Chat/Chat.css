@@ -1,0 +1,8 @@
+.messages {
+    overflow-y: scroll;
+    margin-bottom: 2rem;
+    padding: .25rem;
+    border-radius: .25rem;
+    height: 200px;
+    background-color: #eee;
+}

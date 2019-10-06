@@ -8,6 +8,8 @@ import AdminReports from '../Reports/AdminReports';
 import CreateReport from '../Reports/CreateReport';
 import UpdateReport from '../Reports/UpdateReport';
 import DeleteReport from '../Reports/DeleteReport';
+import Chat from '../Chat/Chat';
+import ChatName from '../Chat/ChatName';
 import About from '../About/About';
 import RegistrationForm from '../RegistrationForm/RegistrationForm';
 import VerifyAdmin from '../Auth/VerifyAdmin';
@@ -28,6 +30,8 @@ class App extends Component {
                     <Route exact path="/reports/create" component={CreateReport} />
                     <Route exact path="/reports/update/:id" component={UpdateReport} />
                     <Route exact path="/reports/delete/:id" component={DeleteReport} />
+                    <Route exact path="/chat" component={Chat} />
+                    <Route exact path="/chat/set-name" component={ChatName} />
                     <Route exact path="/about" component={About} />
                     <Route exact path="/register" component={RegistrationForm} />
                     <Route exact path="/verify-admin" component={VerifyAdmin} />

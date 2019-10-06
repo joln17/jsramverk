@@ -74,6 +74,9 @@ class Header extends Component {
                                 {adminNav}
                                 {this.state.titlesFetched}
                             </NavDropdown>
+                            <Nav.Link href="/chat/set-name" active={path[0] === "/chat"}>
+                                Chatta
+                            </Nav.Link>
                             <Nav.Link href="/about" active={path[0] === "/about"}>Om</Nav.Link>
                             {loginNav}
                         </Nav>
