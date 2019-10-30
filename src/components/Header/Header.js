@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { withRouter } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import { Container, Image, Nav, Navbar, NavDropdown, Row } from 'react-bootstrap';
 
 import config from '../../config';
@@ -37,7 +37,7 @@ class Header extends Component {
         }).then(result => {
             if (result.data) {
                 const options = result.data.map(row => {
-                    return <NavDropdown.Item key={row.id} href={'/reports/week/' + row.id}>
+                    return <NavDropdown.Item key={row.id} as={Link} to={'/reports/week/' + row.id}>
                         {row.title}
                     </NavDropdown.Item>;
                 });
@@ -56,28 +56,36 @@ class Header extends Component {
         const path = this.props.location.pathname.match(/^\/[^/]*/);
 
         if (localStorage.getItem('token')) {
-            adminNav = <NavDropdown.Item key={0} href={'/reports/admin'}>Admin</NavDropdown.Item>;
-            loginNav = <Nav.Link href="/logout" active={path[0] === "/login"}>Logga ut</Nav.Link>;
+            adminNav = <NavDropdown.Item key={0} as={Link} to={'/reports/admin'}>
+                Admin
+            </NavDropdown.Item>;
+            loginNav = <Nav.Link as={Link} to="/logout" active={path[0] === "/login"}>
+                Logga ut
+            </Nav.Link>;
         } else {
-            loginNav = <Nav.Link href="/login" active={path[0] === "/login"}>Logga in</Nav.Link>;
+            loginNav = <Nav.Link as={Link} to="/login" active={path[0] === "/login"}>
+                Logga in
+            </Nav.Link>;
         }
 
         return (
             <header>
                 <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-                    <Navbar.Brand href="/">Me-sida</Navbar.Brand>
+                    <Navbar.Brand as={Link} to="/">Me-sida</Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="mr-auto">
-                            <Nav.Link href="/" active={path[0] === "/"}>Hem</Nav.Link>
+                            <Nav.Link as={Link} to="/" active={path[0] === "/"}>Hem</Nav.Link>
                             <NavDropdown title="Redovisning" active={path[0] === "/reports"}>
                                 {adminNav}
                                 {this.state.titlesFetched}
                             </NavDropdown>
-                            <Nav.Link href="/chat/set-name" active={path[0] === "/chat"}>
+                            <Nav.Link as={Link} to="/chat/set-name" active={path[0] === "/chat"}>
                                 Chatta
                             </Nav.Link>
-                            <Nav.Link href="/about" active={path[0] === "/about"}>Om</Nav.Link>
+                            <Nav.Link as={Link} to="/about" active={path[0] === "/about"}>
+                                Om
+                            </Nav.Link>
                             {loginNav}
                         </Nav>
                     </Navbar.Collapse>

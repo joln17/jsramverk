@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import { Button, Col, Container, Form, Row } from 'react-bootstrap';
 
 import config from '../../config';
@@ -99,7 +100,7 @@ class AdminReports extends Component {
                             </Form.Group>
 
                             <div className="center">
-                                <Button variant="primary" href="/reports/create">
+                                <Button variant="primary" as={Link} to="/reports/create">
                                     Skapa ny rapport
                                 </Button>
                             </div>
